@@ -205,6 +205,10 @@ UPROGS=\
 	$U/_sync\
 	$U/_sleep\
 	$U/_memdump\
+	$U/_sixfive\
+	$U/_find\
+	$U/_attack\
+	$U/_secret\
 
 
 

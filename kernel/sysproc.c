@@ -8,6 +8,22 @@
 #include "vm.h"
 
 uint64
+sys_interpose(void)
+{
+  int mask;
+  char path[MAXPATH];
+  struct proc *p = myproc();
+
+  argint(0, &mask);
+  if(argstr(1, path, MAXPATH) < 0)
+    return -1;
+
+  p->syscall_mask = mask;
+  safestrcpy(p->syscall_path, path, sizeof(p->syscall_path));
+  return 0;
+}
+
+uint64
 sys_exit(void)
 {
   int n;

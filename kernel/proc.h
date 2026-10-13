@@ -101,4 +101,6 @@ struct proc {
   struct file *ofile[NOFILE];  // Open files
   struct inode *cwd;           // Current directory
   char name[16];               // Process name (debugging)
+  int syscall_mask;            // interpose: bitmask of syscalls to reject
+  char syscall_path[MAXPATH];  // interpose: pathname allowed through the mask
 };
